@@ -1,0 +1,42 @@
+﻿@model ModelBinding.ViewModels.homepageViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>homepage</title>
+</head>
+<body>
+    <div> 
+        <h2>Home Page</h2>
+        <hr />
+    </div>
+    <div>
+        <b>Ad : </b>@Model.PeopleObject.Name <br />
+        <b>Soyad : </b>@Model.PeopleObject.LastName<br />
+        <b>Yaş : </b>@Model.PeopleObject.Age
+        <hr />
+        <b>Ad Soyad :</b> @(Model.PeopleObject.Name + " " + Model.PeopleObject.LastName)
+        <hr />
+        <b>Adres: </b>@(Model.AddressObject.AddressDefination + " / " + Model.AddressObject.City)
+    </div>
+    <hr />
+
+    <div>
+        @using (Html.BeginForm())
+    {
+        <b>Ad : </b>@Html.TextBoxFor(model => model.PeopleObject.Name)<br />
+        <b>Soyad :</b>@Html.TextBoxFor(model => model.PeopleObject.LastName)<br />
+        <b>Yas :</b>@Html.TextBoxFor(model => model.PeopleObject.Age)
+        <hr />
+        <b>Adres tanım :</b>@Html.TextBoxFor(model => model.AddressObject.AddressDefination)<br />
+        <b>Adres şehir :</b>@Html.TextBoxFor(model => model.AddressObject.City)
+        <input type="submit" value="Gönder" />
+}
+    </div>
+</body>
+</html>
